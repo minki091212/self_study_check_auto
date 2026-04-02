@@ -5,6 +5,7 @@ import cv2
 import json
 from collections import defaultdict
 import time
+import torch
 
 # ----------------------
 # 설정
@@ -38,7 +39,9 @@ def is_in_seat(center, seat):
 # ----------------------
 def main():
     model = YOLO(MODEL_PATH)
-    model.to("cuda")
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model.to(device)
+
 
     seats = load_seats(SEATS_PATH)
 
