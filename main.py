@@ -41,8 +41,7 @@ def main():
     model = YOLO(MODEL_PATH)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     model.to(device)
-
-
+    
     seats = load_seats(SEATS_PATH)
 
     # 좌석별 마지막으로 사람이 있었던 시간
