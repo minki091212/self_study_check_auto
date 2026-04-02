@@ -29,6 +29,7 @@ def is_in_seat(center, seat):
 # ----------------------
 def main():
     model = YOLO(MODEL_PATH)
+    model.to("cuda")
     cap = cv2.VideoCapture(0)
 
     if not cap.isOpened():
